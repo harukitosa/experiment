@@ -1,4 +1,4 @@
-# てンソルネットワークを用いて内積計算を行う
+# tensornetworkを用いて内積計算を行う
 import tensornetwork as tn
 import numpy as np
 import math
