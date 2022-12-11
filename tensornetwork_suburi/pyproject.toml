@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "tensornetwork-suburi"
+version = "0.1.0"
+description = ""
+authors = ["harukitosa <13haruki28@gmail.com>"]
+readme = "README.md"
+packages = [{include = "tensornetwork_suburi"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+tensornetwork = "^0.4.6"
+numpy = "^1.23.5"
+jax = "^0.3.25"
+jaxlib = "^0.3.25"
+quimb = "^1.4.0"
+autoray = "^0.5.1"
+networkx = "^2.8.8"
+matplotlib = "^3.6.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
