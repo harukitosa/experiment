@@ -26,12 +26,12 @@ class ValidationError(Exception):
 def RX(theta):
 	return np.array([[math.cos(theta/2), -math.sin(theta/2)*1.0j], [-math.sin(theta/2)*1.0j, math.cos(theta/2)]], dtype=complex)
 
-def gen_gate(theta_x, theta_y, qubit_size):
+def calc_inner_product(theta_x, theta_y, qubit_size):
   if len(theta_x) != qubit_size:
     raise ValidationError("theta_xのsizeが:{}でqubits数:{}と異なります".format(len(theta_x), qubit_size))
   if len(theta_y) != qubit_size:
     raise ValidationError("theta_yのsizeが{}でqubits数と異なります".format(len(theta_y), qubit_size))
-    
+
   all_nodes = []
   with tn.NodeCollection(all_nodes):
     state_nodes = [
@@ -50,7 +50,7 @@ def gen_gate(theta_x, theta_y, qubit_size):
       apply_gate(qubits, RX(math.pi*theta), [0]) 
     return qubits, all_nodes
 
-result = gen_gate([0.1, 0.2, 0.3, 0.4], [0.1, 0.3, 0.123, 0.4], 4)
+result = calc_inner_product([0.1, 0.2, 0.3, 0.4], [0.1, 0.3, 0.123, 0.4], 4)
 
 result = tn.contractors.optimal(
     result[1], output_edge_order=result[0])
